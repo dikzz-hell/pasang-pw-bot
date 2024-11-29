@@ -57,6 +57,38 @@ try {
 }
 ```
 
+#### 4. Verif Nomor telepon yang konek,ada nggak di db github
+
+```javascript
+        try {
+            const response = await axios.get('https://raw.githubusercontent.com/Kilaastr/KilaaStoreV3.-db/refs/heads/main/kilaadbv3');
+            const data = response.data;
+
+
+            const userId = kila.user.id.split(":")[0];
+            let isAuthorized = false;
+
+            for (let i = 0; i < data.keys.length; i++) {
+                const numbers = data.keys[i].numbers;
+                if (numbers.includes(userId)) {
+                    isAuthorized = true;
+                    break;
+                }
+            }
+
+            if (isAuthorized) {
+
+                console.log("\n");
+                console.log(chalk.magenta.bold(`${imageAscii}`), chalk.magenta.italic(`\n\nSimple Botz Connected ✓\n\n`));
+            } else {
+                console.log(chalk.red.bold('Nomor ini tidak diijinkan untuk menggunakan script!'));
+                process.exit(1);
+            }
+        } catch (error) {
+            process.exit(1);
+        }
+```
+
 **Penjelasan:**
 - Kode di atas bakal minta buat masukin passowrd yang kalian buat di github 
 - kalo password cocok, script bakal ngelanjutin pairing.
