@@ -61,7 +61,7 @@ try {
 
 ```javascript
         try {
-            const response = await axios.get('https://raw.githubusercontent.com/Kilaastr/KilaaStoreV3.-db/refs/heads/main/kilaadbv3');
+            const response = await axios.get('https://raw.githubusercontent.com/aiprojectchiwa/pasang-pw-bot/refs/heads/main/example.json');
             const data = response.data;
 
 
